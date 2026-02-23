@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f6f9;
+}
+
+h2 {
+    color: darkblue;
+}
+
+h3 {
+    color: darkred;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 95%;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+td:hover {
+    background-color: #d1e7ff;
+}
+
+.lunch {
+    background-color: #ffe4b5;
+    font-weight: bold;
+    color: darkgreen;
+}

@@ -1,0 +1,196 @@
+/* External CSS for Vaish College of Engineering */
+
+:root {
+    --primary-color: #2980b9;
+    --secondary-color: #34495e;
+    --accent-color: #f1c40f;
+    --bg-color: #f4f7f6;
+    --text-color: #2c3e50;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav {
+    background: var(--secondary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-menu li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: var(--accent-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: var(--white);
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+    margin-top: 2rem;
+}
+
+.hero-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 1rem;
+}
+
+.course-card {
+    background: #fdfdfd;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+/* Form Styling */
+.admission-form {
+    background: #f9f9f9;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin-top: 2rem;
+}
+
+.admission-form h3 {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #21618c;
+}
+
+footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.stats-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.stats-list li {
+    text-align: center;
+    font-weight: bold;
+}
