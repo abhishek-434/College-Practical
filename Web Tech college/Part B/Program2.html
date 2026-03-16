@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Calculator</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+}
+
+.calculator{
+    width:300px;
+    margin:100px auto;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+input, select{
+    width:90%;
+    padding:10px;
+    margin:10px;
+    font-size:18px;
+}
+
+button{
+    padding:10px 15px;
+    margin:5px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#result{
+    font-size:20px;
+    margin-top:10px;
+    color:green;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+
+<h2>Simple Calculator</h2>
+
+<input type="number" id="num1" placeholder="Enter first number">
+
+<select id="operation">
+<option value="+">Addition (+)</option>
+<option value="-">Subtraction (-)</option>
+<option value="*">Multiplication (*)</option>
+<option value="/">Division (/)</option>
+</select>
+
+<input type="number" id="num2" placeholder="Enter second number">
+
+<br>
+
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let num1 = parseFloat(document.getElementById("num1").value);
+let num2 = parseFloat(document.getElementById("num2").value);
+let op = document.getElementById("operation").value;
+let result;
+
+if(isNaN(num1) || isNaN(num2)){
+    document.getElementById("result").innerHTML = "Please enter both numbers";
+    return;
+}
+
+if(op == "+"){
+    result = num1 + num2;
+}
+else if(op == "-"){
+    result = num1 - num2;
+}
+else if(op == "*"){
+    result = num1 * num2;
+}
+else if(op == "/"){
+    if(num2 == 0){
+        document.getElementById("result").innerHTML = "Cannot divide by zero";
+        return;
+    }
+    result = num1 / num2;
+}
+
+document.getElementById("result").innerHTML = "Result: " + result;
+
+}
+
+</script>
+
+</body>
+</html>
