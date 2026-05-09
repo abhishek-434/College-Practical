@@ -1,48 +1,197 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vaish College BCA Time Table Jan-May 2026</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        table { margin: 0 auto; border-collapse: collapse; width: 90%; }
-        th, td { border: 1px solid black; padding: 10px; text-align: center; }
-        th { background-color: #f2f2f2; }
-    </style>
+<title>Online Quiz Game</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.container{
+width:60%;
+margin:auto;
+margin-top:40px;
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+}
+
+button{
+padding:12px;
+margin:10px;
+width:60%;
+font-size:16px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+background:#38bdf8;
+color:black;
+}
+
+button:hover{
+background:#0ea5e9;
+}
+
+.level{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.prize{
+font-size:20px;
+color:gold;
+margin-bottom:20px;
+}
+</style>
+
 </head>
+
 <body>
 
-    <h2>Vaish College of Engineering, Rohtak</h2>
-    <h3>Time Table for BCA Jan 2026-May 2026 | Dept. of CSE | 2nd Sem (Room - 15)</h3>
+<div class="container">
 
-    <table>
-        <tr>
-            <th>Day / Time</th>
-            <th>09:00-10:00</th><th>10:00-11:00</th><th>11:00-12:00</th>
-            <th>12:00-1:00</th>
-            <th>1:00-2:00</th><th>2:00-3:00</th><th>3:00-4:00</th><th>4:00-5:00</th>
-        </tr>
-        <tr>
-            <th>MON</th><td>JAVA</td><td>MFCS - II</td><td>DS</td>
-            <td rowspan="5"><b>L<br>U<br>N<br>C<br>H</b></td>
-            <td>Web Tech. LAB G1</td><td>DS LAB G1</td><td>-</td><td>-</td>
-        </tr>
-        <tr>
-            <th>TUE</th><td>MFCS - II</td><td>DS</td><td>JAVA</td>
-            <td>OS LAB G1</td><td>DS LAB G1 (Ms. Shiba)</td><td>-</td><td>-</td>
-        </tr>
-        <tr>
-            <th>WED</th><td>OS</td><td>WEB TECH.</td><td>JAVA</td>
-            <td>Web Tech. LAB G2</td><td>JAVA LAB G1</td><td>-</td><td>JAVALAB G2</td>
-        </tr>
-        <tr>
-            <th>THU</th><td>MFCS - II</td><td>IC</td><td>OS</td>
-            <td>OS LAB G2</td><td>JAVA LAB G1</td><td>-</td><td>-</td>
-        </tr>
-        <tr>
-            <th>FRI</th><td>IC</td><td>OS</td><td>DS</td>
-            <td>DS LAB G2</td><td>JAVA LAB G2</td><td>-</td><td>-</td>
-        </tr>
-    </table>
+<h1>Ultimate Quiz Game</h1>
+
+<div class="level">Level: <span id="level">1</span></div>
+
+<div class="prize">Prize: <span id="prize">Chocolate</span></div>
+
+<h2 id="question">Question will appear here</h2>
+
+<div id="answers"></div>
+
+</div>
+
+<script>
+
+let level = 1
+
+let prizes = [
+"Chocolate",
+"Headphones",
+"Smart Watch",
+"Smartphone",
+"Tablet",
+"Laptop",
+"Gaming PC",
+"Motorcycle",
+"Car",
+"Luxury Car",
+"Private Jet"
+]
+
+let questions = [
+
+{q:"What does HTML stand for?",
+a:["Hyper Text Markup Language","Home Tool Markup Language","Hyperlinks Text Management","Hyper Tool Multi Language"],
+c:0},
+
+{q:"Which language runs in a browser?",
+a:["C","Java","JavaScript","Python"],
+c:2},
+
+{q:"What does CSS stand for?",
+a:["Colorful Style Sheet","Creative Style System","Cascading Style Sheets","Computer Style Sheet"],
+c:2},
+
+{q:"Which tag is used for images?",
+a:["<img>","<image>","<src>","<pic>"],
+c:0},
+
+{q:"Which company created JavaScript?",
+a:["Google","Microsoft","Netscape","Apple"],
+c:2},
+
+{q:"Which HTML tag is used for links?",
+a:["<a>","<link>","<href>","<url>"],
+c:0},
+
+{q:"Which symbol is used for id in CSS?",
+a:["#",".","$","@"],
+c:0},
+
+{q:"Which is not a programming language?",
+a:["Python","HTML","Java","C++"],
+c:1},
+
+{q:"What year was JavaScript created?",
+a:["1995","2000","1989","2005"],
+c:0},
+
+{q:"Which company owns Android?",
+a:["Apple","Google","Microsoft","IBM"],
+c:1}
+
+]
+
+let used = []
+
+function getQuestion(){
+
+if(used.length === questions.length){
+used = []
+}
+
+let index
+
+do{
+index = Math.floor(Math.random()*questions.length)
+}while(used.includes(index))
+
+used.push(index)
+
+let q = questions[index]
+
+document.getElementById("question").innerText = q.q
+
+let ans = ""
+
+for(let i=0;i<q.a.length;i++){
+ans += `<button onclick="checkAnswer(${i},${q.c})">${q.a[i]}</button><br>`
+}
+
+document.getElementById("answers").innerHTML = ans
+
+}
+
+function checkAnswer(selected,correct){
+
+if(selected === correct){
+
+level++
+
+if(level > prizes.length){
+prizes.push("Mega Billion Prize")
+}
+
+alert("Correct! Level Up!")
+
+}
+
+else{
+
+if(level > 1){
+level--
+}
+
+alert("Wrong! Level Down!")
+
+}
+
+document.getElementById("level").innerText = level
+document.getElementById("prize").innerText = prizes[Math.min(level-1,prizes.length-1)]
+
+getQuestion()
+
+}
+
+getQuestion()
+
+</script>
 
 </body>
 </html>
